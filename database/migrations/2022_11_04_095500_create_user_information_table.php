@@ -14,10 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('user_information', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class, 'owner_id');
-            $table->text('content')->nullable();
+            $table->foreignIdFor(User::class, 'user_id');
+            $table->string('name', 255)->nullable();;
+            $table->text('bio')->nullable();;
+            $table->timestamp('birthday')->nullable();;
+            $table->ipAddress()->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('user_information');
     }
 };
