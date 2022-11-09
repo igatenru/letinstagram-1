@@ -10,4 +10,9 @@ class UserInformation extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, foreignKey:'user_id', ownerKey:'id');
+    }
 }

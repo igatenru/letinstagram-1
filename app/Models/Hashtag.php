@@ -9,4 +9,5 @@ class Hashtag extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
 }
