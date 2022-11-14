@@ -8,13 +8,14 @@
     </head>
     <body>
         <h1>Добро пожаловать в {{ env('APP_NAME') }}!</h1>
-        <img width='300px' src='{{ $imgsrc }}'>
-        <ul>
-        @forelse ($query as $q => $v) 
-            <li>{{ $q }} = {{ $v }}</li>
-        @empty
-            <p>No data in $query</p>
-        @endforelse
-        </ul>
+        <form action="{{ route('register') }}" method="POST">
+            @csrf
+            
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="name" placeholder="Name">
+            <input type="date" name="birthday" placeholder="Birthday">
+            <button type="submit">Register</button>
+        </form>
     </body>
 </html>
